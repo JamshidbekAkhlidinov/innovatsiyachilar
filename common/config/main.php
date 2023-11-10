@@ -13,6 +13,13 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
+        'db' => [
+            'class' => \yii\db\Connection::class,
+            'dsn' => 'mysql:host=localhost;dbname=tatu_innovatsiyachilar',
+            'username' => 'root',
+            'password' => 'root',
+            'charset' => 'utf8mb4',
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,

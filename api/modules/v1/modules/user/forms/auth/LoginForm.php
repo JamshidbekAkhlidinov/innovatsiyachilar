@@ -10,7 +10,6 @@ namespace api\modules\v1\modules\user\forms\auth;
 
 use api\modules\v1\base\FormRequest;
 use api\modules\v1\modules\user\resources\UserResource;
-use common\models\User;
 
 class LoginForm extends FormRequest
 {
