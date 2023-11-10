@@ -8,17 +8,17 @@
 namespace api\modules\v1\modules\user\controllers;
 
 use api\controllers\BaseController;
-use api\modules\v1\modules\user\filters\SpecialistList;
-use api\modules\v1\modules\user\requests\SpecialistPageData;
+use api\modules\v1\modules\user\filters\CategoryList;
+use api\modules\v1\modules\user\requests\CategoryPageData;
 use common\models\Category;
 use yii\web\NotFoundHttpException;
 
-class SpecialistController extends BaseController
+class CategoryController extends BaseController
 {
     public function actionIndex()
     {
         return $this->sendResponse(
-            new SpecialistList(),
+            new CategoryList(),
             request()->get(),
         );
     }
@@ -26,7 +26,7 @@ class SpecialistController extends BaseController
     public function actionView($id)
     {
         return $this->sendResponse(
-            new SpecialistPageData(
+            new CategoryPageData(
                 $this->getModel($id),
             ),
         );

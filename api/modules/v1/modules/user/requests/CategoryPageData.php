@@ -10,19 +10,19 @@ namespace api\modules\v1\modules\user\requests;
 use api\modules\v1\base\BaseRequest;
 use common\models\Category;
 
-class SpecialistPageData extends BaseRequest
+class CategoryPageData extends BaseRequest
 {
 
-    public Category $application;
+    public Category $category;
 
-    public function __construct(Category $application, $config = [])
+    public function __construct(Category $category, $config = [])
     {
-        $this->application = $application;
+        $this->category = $category;
         parent::__construct($config);
     }
 
     public function getResult()
     {
-        return $this->application;
+        return $this->category;
     }
 }

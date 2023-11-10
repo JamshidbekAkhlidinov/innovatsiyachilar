@@ -8,11 +8,10 @@
 namespace api\modules\v1\modules\user\filters;
 
 use api\modules\v1\base\FilterRequest;
-use api\modules\v1\modules\user\resources\ApplicationResource;
 use api\modules\v1\modules\user\resources\CategoryResource;
 use common\enums\StatusEnum;
 
-class SpecialistList extends FilterRequest
+class CategoryList extends FilterRequest
 {
     public $name;
 
