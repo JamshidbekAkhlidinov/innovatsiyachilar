@@ -37,10 +37,10 @@ class MainMenu
                     ]
                 ],
                 [
-                    'label' => translate("Specialists"),
+                    'label' => translate("Categories"),
                     'iconType' => 'fa',
                     'icon' => 'th-large ',
-                    'url' => ['/specialist'],
+                    'url' => ['/category'],
                     'options' => [
                         'class' => $controller_id == 'specialist' ? 'active' : ''
                     ]

@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use common\models\Category;
 
 /**
- * SpecialistSearch represents the model behind the search form of `common\models\Specialist`.
+ * CategorySearch represents the model behind the search form of `common\models\Category`.
  */
 class CategorySearch extends Category
 {
