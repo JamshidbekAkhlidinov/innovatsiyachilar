@@ -13,7 +13,11 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
+<<<<<<< HEAD
 	'mailer' => [
+=======
+        'mailer' => [
+>>>>>>> refs/remotes/origin/main
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
             'messageConfig' => [
