@@ -2,9 +2,9 @@
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
-	"name"=>"ustadev.uz",
+    "name" => "ustadev.uz",
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
@@ -13,11 +13,7 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
-<<<<<<< HEAD
-	'mailer' => [
-=======
         'mailer' => [
->>>>>>> refs/remotes/origin/main
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
             'messageConfig' => [
