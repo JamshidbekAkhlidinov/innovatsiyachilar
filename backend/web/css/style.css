@@ -1,0 +1,5 @@
+section > ul > li > a > i,
+section > ul > li > ul > li > a > i
+{
+    width: 20px;
+}
