@@ -60,6 +60,7 @@ class TechnicalController extends BaseController
     {
         $model = TechnicalList::findOne([
             'id' => $id,
+            'created_by' => user()->id,
         ]);
         if ($model !== null) {
             return $model;

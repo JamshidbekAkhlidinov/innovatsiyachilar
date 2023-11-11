@@ -25,6 +25,8 @@ class TechnicalList extends FilterRequest
     {
         $query = TechnicalResource::find();
 
+        $query->andWhere(['created_by' => user()->id]);
+
         $query->orderBy(['created_at' => SORT_DESC]);
 
         if ($search = $this->name) {
