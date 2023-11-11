@@ -39,7 +39,7 @@ class TechnicalResource extends TechnicalList
                 ];
             },
             'we_calculate' => static function (TechnicalList $model) {
-                $time = $model->time - 2; //2 soat tejasak
+                $time = $model->time - 10; //10 soat tejash uchun
                 $power = $model->power / 1000;
                 $sum = 295; // uzb da 1 kv energiya
                 $count = $model->count;
