@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
 /**
@@ -35,6 +36,10 @@ class TechnicalList extends \yii\db\ActiveRecord
             [
                 'class' => TimestampBehavior::class,
                 'value' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'class' => BlameableBehavior::class,
+                'updatedByAttribute' => false,
             ]
         ];
     }
