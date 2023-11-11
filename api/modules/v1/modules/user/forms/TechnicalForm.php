@@ -48,6 +48,12 @@ class TechnicalForm extends FormRequest
         $model->power = $this->power;
         $model->count = $this->count;
         $model->time = $this->time;
-        return $model->save();
+        if ($isSave = $model->save()) {
+            return [
+                'success' => $isSave,
+                'id' => $model->id,
+            ];
+        }
+        return $model;
     }
 }
