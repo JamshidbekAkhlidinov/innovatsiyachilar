@@ -8,6 +8,7 @@
 namespace api\modules\v1\modules\user\requests;
 
 use api\modules\v1\base\BaseRequest;
+use api\modules\v1\modules\user\resources\TechnicalResource;
 use common\models\TechnicalList;
 
 class TechnicalPageData extends BaseRequest
@@ -17,7 +18,7 @@ class TechnicalPageData extends BaseRequest
 
     public function __construct(TechnicalList $category, $config = [])
     {
-        $this->category = $category;
+        $this->category = TechnicalResource::findOne(['id' => $category->id]);
         parent::__construct($config);
     }
 
