@@ -8,7 +8,9 @@
 namespace api\modules\v1\modules\user\forms;
 
 use api\modules\v1\base\FormRequest;
+use common\enums\StatusEnum;
 use common\models\TechnicalHistory;
+use common\models\TimeHistory;
 
 class AddTechnicalHistoryForm extends FormRequest
 {
@@ -17,18 +19,37 @@ class AddTechnicalHistoryForm extends FormRequest
     public function rules()
     {
         return [
-            ['technical_id', 'integer'],
+            [['technical_id'], 'integer'],
         ];
     }
 
     public function getResult()
     {
+        $baseurl = \Yii::getAlias("@api/web/docs/");
+        $name = "111.csv";
+        $file = file_get_contents($baseurl . $name);
+        $counts = explode("\n", $file);
+        $timeHistoriesCount = 0;
+        foreach ($counts as $count) {
+            if ($count == 1) {
+                $timeHistoriesCount++;
+            }
+        }
+
         $history = TechnicalHistory::findOne([
             'technical_id' => $this->technical_id,
             'date' => date('Y-m-d'),
         ]);
-        if ($history) {
-            $history->calculate_time += 1;
+        if (!$history) {
+            $history = new TechnicalHistory([
+                'technical_id' => $this->technical_id,
+                'date' => date('Y-m-d'),
+            ]);
         }
+        $history->calculate_time += $timeHistoriesCount;
+        if ($isSave = $history->save()) {
+            return $isSave;
+        }
+        return $history;
     }
 }

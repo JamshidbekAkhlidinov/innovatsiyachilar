@@ -7,6 +7,7 @@
 
 namespace api\modules\v1\modules\user\resources;
 
+use common\models\TechnicalHistory;
 use common\models\TechnicalList;
 
 class TechnicalResource extends TechnicalList
@@ -30,7 +31,7 @@ class TechnicalResource extends TechnicalList
                 $one_year = 12 * 30 * $model->time * $power * $count * $sum;
                 $ten_year = 10 * 12 * 30 * $model->time * $power * $count * $sum;
                 return [
-                    "message" => "Foydalanuvchi kiritgan vaqt bo'yicha, , `sum` da",
+                    "message" => "Foydalanuvchi kiritgan " . $model->time . "soat vaqt bo'yicha, `sum` da",
                     'one_day' => $one_day,
                     'one_week' => $one_week,
                     'one_month' => $one_month,
@@ -39,7 +40,17 @@ class TechnicalResource extends TechnicalList
                 ];
             },
             'we_calculate' => static function (TechnicalList $model) {
-                $time = $model->time - 10; //10 soat tejash uchun
+                $history = TechnicalHistory::findOne(['technical_id' => $model->id]);
+                if ($history) {
+                    $hour = $history->calculate_time / 3600;
+                    $message = "Bir kunda " . $hour  . " soat vaqt foydalanilsa `sum` da";
+                }else{
+                    $hour = 10;
+                    $message = "Bir kunda " . 10  . " soat vaqt foydalanilsa `sum` da";
+
+                }
+
+                $time = $hour;
                 $power = $model->power / 1000;
                 $sum = 295; // uzb da 1 kv energiya
                 $count = $model->count;
@@ -49,7 +60,7 @@ class TechnicalResource extends TechnicalList
                 $one_year = 12 * 30 * $time * $power * $count * $sum;
                 $ten_year = 10 * 12 * 30 * $time * $power * $count * $sum;
                 return [
-                    "message" => "Bir kunda 2 soat kamproq vaqt foydalanilsa, `sum` da",
+                    "message" => $message,
                     'one_day' => $one_day,
                     'one_week' => $one_week,
                     'one_month' => $one_month,

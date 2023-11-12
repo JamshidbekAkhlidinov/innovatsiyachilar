@@ -19,7 +19,7 @@ class m231112_054556_create_time_history_table extends Migration
             'id' => $this->primaryKey(),
             'technical_id' => $this->integer(),
             'status' => $this->integer(),
-            'created_at' => $this->datetime(),
+            'created_at' => $this->date(),
         ]);
 
         // creates index for column `technical_id`

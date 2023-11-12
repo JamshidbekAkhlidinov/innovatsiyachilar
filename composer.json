@@ -21,8 +21,8 @@
         "rmrevin/yii2-fontawesome": "^3.4",
         "zafarjonovich/yii-translatable": "dev-master",
         "yiisoft/yii2-symfonymailer": "~2.0.3",
-        "yiisoft/yii2-swiftmailer": "~2.1.0"
-
+        "yiisoft/yii2-swiftmailer": "~2.1.0",
+        "shuchkin/simplexlsx": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

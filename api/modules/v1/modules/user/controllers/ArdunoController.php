@@ -9,13 +9,20 @@ namespace api\modules\v1\modules\user\controllers;
 
 use api\controllers\BaseController;
 use api\modules\v1\modules\user\forms\AddTechnicalHistoryForm;
+use common\models\TechnicalList;
 
 class ArdunoController extends BaseController
 {
-    public function actionAdd($technical_id)
+    public function actionAdd()
     {
         return $this->sendResponse(
-            new AddTechnicalHistoryForm($technical_id),
+            new AddTechnicalHistoryForm([
+                'technical_id' => TechnicalList::find()
+                    ->orderBy(['created_at' => SORT_DESC])
+                    ->limit(1)
+                    ->one()
+                    ->id
+            ]),
         );
     }
 }

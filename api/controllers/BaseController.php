@@ -56,6 +56,7 @@ class BaseController extends Controller
                     'login', 'signup', 'ok', 'error',
                     'request-password-reset', 'reset-password', 'verify-email',
                     'resend-verification-email',
+                    'add',
                 ],
             ],
             'access' => [
